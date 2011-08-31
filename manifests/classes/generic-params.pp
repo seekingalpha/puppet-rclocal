@@ -3,7 +3,7 @@
 # Copyright:: Copyright (c) 2011 Sebastien Varrette
 # License::   GPLv3
 #
-# Time-stamp: <Wed 2011-08-31 11:29 svarrette>
+# Time-stamp: <Wed 2011-08-31 15:29 svarrette>
 # ------------------------------------------------------------------------------
 # = Class: generic::params
 #
@@ -24,9 +24,16 @@ class generic::params {
     #### MODULE INTERNAL VARIABLES  #########
     # (Modify to adapt to unsupported OSes)
     #######################################
-    $generic_packages = $operatingsystem ? {
-        debian  => [],
-        default => []
+    $utils_packages = $operatingsystem ? {
+        default => [
+                    'lsof',
+                    'lynx',
+                    'nmap',
+                    'tcpdump',
+                    'wget',
+                    'dnsutils',
+                    'iotop'
+                    ]
     }
 
     $bootlogd_defaultconf = $operatingsystem ? {
