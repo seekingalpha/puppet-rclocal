@@ -57,8 +57,15 @@ class generic::common {
 
     # complete with basic packages
     #package { $generic::params::generic_packages:
-    #    ensure  => present,
-    #}
+        #    ensure  => present,
+        #}
+
+    file { '/etc/hostname':
+        owner => root,
+        group => root,
+        mode=> 644, 
+        content => template("generic/hostname.erb");
+    }
 
 }
 
@@ -69,7 +76,7 @@ class generic::common {
 # Specialization class for Debian systems
 class generic::debian inherits generic::common {
     # log the boot process by putting BOOTLOGD_ENABLE=Yes in /etc/default/bootlogd
-    # TODO : check squeeze version? 
+    # TODO : check squeeze version?
     augeas { "${generic::params::bootlogd_defaultconf}/BOOTLOGD_ENABLE":
         context => "/files/${generic::params::bootlogd_defaultconf}",
         onlyif  => "get BOOTLOGD_ENABLE != 'Yes'",
