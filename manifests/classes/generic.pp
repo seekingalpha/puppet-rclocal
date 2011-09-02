@@ -45,13 +45,16 @@ class generic::common {
     # Load the variables used in this module. Check the ssh-server-params.pp file
     require generic::params
 
-    include 'common'
+    include common
+
+    include concat::setup
     #include 'test'
-    include 'rsync'
-    include 'git'
-    include 'bash'
-    include 'vim'
-    include 'ssh::client'
+    include rsync
+    include git
+    include bash
+    include vim
+    include sudo
+    include ssh::client
     
     # install useful utils
     package { $generic::params::utils_packages:
