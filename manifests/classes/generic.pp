@@ -45,8 +45,8 @@ class generic::common {
     # Load the variables used in this module. Check the ssh-server-params.pp file
     require generic::params
 
-    include common
-
+    #include common
+    include augeas
     include concat::setup
     #include 'test'
     include rsync
@@ -57,8 +57,8 @@ class generic::common {
     include ssh::client
     
     # install useful utils
-    package { $generic::params::utils_packages:
-        ensure  => present,
+    package { $generic::params::utils_packages :
+        ensure  => 'present',
     }
 
     file { '/etc/hostname':
