@@ -68,6 +68,22 @@ class generic::common {
         content => template("generic/hostname.erb");
     }
 
+    # Ensure correct right on the root homedir
+    file { '/root':
+        ensure => 'directory',
+        owner  => root,
+        group  => root,
+        mode   => '0700', 
+    }
+    
+    # Setup bash for the root user
+    bash::setup { '/root':
+        ensure => 'present', 
+        user   => 'root', 
+        group  => 'root',
+    }
+    
+
 }
 
 
