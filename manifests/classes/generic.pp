@@ -52,6 +52,7 @@ class generic::common {
     include rsync
     include git
     include bash
+    include kernel
     include vim
     include sudo
     include ssh::client
