@@ -3,7 +3,6 @@
 # Copyright:: Copyright (c) 2011 Sebastien Varrette
 # License::   GPLv3
 #
-# Time-stamp: <Wed 2011-08-31 15:29 svarrette>
 # ------------------------------------------------------------------------------
 # = Class: generic::params
 #
@@ -32,7 +31,9 @@ class generic::params {
                     'tcpdump',
                     'wget',
                     'dnsutils',
-                    'iotop'
+                    'iotop',
+                    'ethtool',
+                    'console-data'
                     ]
     }
 
