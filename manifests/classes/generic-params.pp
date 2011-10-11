@@ -30,6 +30,8 @@ class generic::params {
                     'nmap',
                     'tcpdump',
                     'wget',
+                    'pwgen',
+                    'figlet',
                     'dnsutils',
                     'iotop',
                     'ethtool',
