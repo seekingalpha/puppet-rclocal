@@ -35,7 +35,9 @@ class generic::params {
                     'dnsutils',
                     'iotop',
                     'ethtool',
-                    'console-data'
+                    'console-data',
+                    'bzip2',
+                    'zip'
                     ]
     }
 
