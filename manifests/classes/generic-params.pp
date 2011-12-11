@@ -24,6 +24,34 @@ class generic::params {
     # (Modify to adapt to unsupported OSes)
     #######################################
     $utils_packages = $operatingsystem ? {
+        redhat => [
+                    'lsof',
+                    'lynx',
+                    'nmap',
+                    'tcpdump',
+                    'wget',
+                    'pwgen',
+#                   'figlet',
+                    'bind-utils',
+                    'iotop',
+                    'ethtool',
+                    'bzip2',
+                    'zip'
+                    ],
+        centos => [
+                    'lsof',
+                    'lynx',
+                    'nmap',
+                    'tcpdump',
+                    'wget',
+                    'pwgen',
+#                   'figlet',
+                    'bind-utils',
+                    'iotop',
+                    'ethtool',
+                    'bzip2',
+                    'zip'
+                    ],
         default => [
                     'lsof',
                     'lynx',
