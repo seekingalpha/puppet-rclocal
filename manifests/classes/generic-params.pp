@@ -60,6 +60,19 @@ class generic::params {
         default => ''
     }
 
+    # The /etc/rc.local file
+    $rc_localconf = $operatingsystem ? {
+        default => '/etc/rc.local'
+    }
+    $rc_localconf_mode = $::operatingsystem ? {
+        default => '0755',
+    }
+    $rc_localconf_owner = $::operatingsystem ? {
+        default => 'root',
+    }
+    $rc_localconf_group = $::operatingsystem ? {
+        default => 'root',
+    }
 
 
 }

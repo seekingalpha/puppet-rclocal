@@ -56,7 +56,7 @@ class generic::common {
     include vim
     include sudo
     include ssh::client
-    
+
     # install useful utils
     package { $generic::params::utils_packages :
         ensure  => 'present',
@@ -65,7 +65,7 @@ class generic::common {
     file { '/etc/hostname':
         owner => root,
         group => root,
-        mode=> 644, 
+        mode=> 644,
         content => template("generic/hostname.erb");
     }
 
@@ -74,16 +74,39 @@ class generic::common {
         ensure => 'directory',
         owner  => root,
         group  => root,
-        mode   => '0700', 
+        mode   => '0700',
     }
-    
+
     # Setup bash for the root user
     bash::setup { '/root':
-        ensure => 'present', 
-        user   => 'root', 
+        ensure => 'present',
+        user   => 'root',
         group  => 'root',
     }
-    
+
+    # Prepare the manipulation of /etc/rc.local
+    include concat::setup
+    concat { "${generic::params::rc_localconf}":
+        warn    => false,
+        mode    => "${generic::params::rc_localconf_mode}",
+        owner   => "${generic::params::rc_localconf_owner}",
+        group   => "${generic::params::rc_localconf_group}"
+    }
+    # Header of the /etc/rc.local file
+    $rc_local_header = $::operatingsystem ? {
+        /(?i-mx:ubuntu|debian)/ => 'rc.local.debian_header',
+        /(?i-mx:redhat|centos)/ => 'rc.local.redhat_header'
+    }
+
+    concat::fragment { "${generic::params::rc_localconf}_header":
+        target  => "${generic::params::rc_localconf}",
+        source  => "puppet:///modules/generic/etc/${rc_local_header}",
+        ensure  => 'present',
+        order   => 01,
+    }
+
+
+
 
 }
 
@@ -99,6 +122,14 @@ class generic::debian inherits generic::common {
         context => "/files/${generic::params::bootlogd_defaultconf}",
         onlyif  => "get BOOTLOGD_ENABLE != 'Yes'",
         changes => "set BOOTLOGD_ENABLE 'Yes'"
+    }
+
+    # /etc/rc.local footer on Debian systems
+    concat::fragment { "${generic::params::rc_localconf}_footer":
+        target  => "${generic::params::rc_localconf}",
+        source  => "puppet:///modules/generic/etc/rc.local.debian_footer",
+        ensure  => 'present',
+        order   => 99,
     }
 
 
