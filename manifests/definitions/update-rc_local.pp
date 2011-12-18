@@ -59,7 +59,7 @@ define update::rc_local(
     $entryname = $name
 
     if ! ($ensure in [ 'present', 'absent' ]) {
-        fail("nfs::server::export 'ensure' parameter must be set to either 'absent', or 'present'")
+        fail("update::rc_local 'ensure' parameter must be set to either 'absent', or 'present'")
     }
 
     #TODO: check systems for which /etc/rc.local do not exists. 
@@ -71,7 +71,7 @@ define update::rc_local(
             ''      => template('generic/rclocal_entry.erb'),
             default => ''
         },
-        default => ''
+        default => $content
     }
     $real_source = $source ? {
         '' => '',
