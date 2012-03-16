@@ -51,7 +51,8 @@ class generic::params {
                     'ethtool',
                     'console-data',
                     'bzip2',
-                    'zip'
+                    'zip',
+                    'lsb-release'
                     ]
     }
 
