@@ -26,12 +26,14 @@ class generic::params {
     $utils_packages = $operatingsystem ? {
         /(?i-mx:redhat|centos)/ => [
                     'lsof',
-                    'lynx',
                     'nmap',
                     'tcpdump',
                     'wget',
+#                   'curl', # this is commented out because of funny dependencies with e2fs and as a consequence, glibc
+                    'lynx',
+                    'links',
                     'pwgen',
-#                   'figlet',
+#                   'figlet', # this requires to have the rpmforge repo available, otherwise resolution fails
                     'bind-utils',
                     'iotop',
                     'ethtool',
@@ -40,10 +42,12 @@ class generic::params {
                     ],
         default => [
                     'lsof',
-                    'lynx',
                     'nmap',
                     'tcpdump',
                     'wget',
+                    'curl',
+                    'lynx',
+                    'links',
                     'pwgen',
                     'figlet',
                     'dnsutils',
