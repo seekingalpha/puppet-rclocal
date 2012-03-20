@@ -35,7 +35,8 @@ class generic::params {
                     'subversion.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
                     # 'git', # not needed explicitly since module exists
 # Popular editors
-                    'vim-enhanced', 'joe', 'nano',
+                    'joe', 'nano',
+                    # 'vim-enhanced', # not needed explicitly since module exists
 # Popular shells
                     'tcsh', 'ksh', 'zsh',
                     # 'bash', 'csh', # not needed explicitly
@@ -66,7 +67,8 @@ class generic::params {
                     'rcs', 'cvs', 'subversion', 'mercurial',
                     # 'git', # not needed explicitly since module exists
 # Popular editors
-                    'vim', 'joe', 'nano',
+                    'joe', 'nano',
+                    # 'vim', # not needed explicitly since module exists
 # Popular shells
                     'tcsh', 'ksh', 'zsh',
                     # 'bash', 'csh', # not needed explicitly
