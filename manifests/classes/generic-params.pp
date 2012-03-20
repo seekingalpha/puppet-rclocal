@@ -28,7 +28,8 @@ class generic::params {
 # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
 # Installation helpers
-                    'wget', 'lynx', 'links',
+                    'wget', 'lynx',
+                    'elinks',      # this is the name for this package on RHEL distros
                     'curl.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
 # Code versioning tools
                     'rcs', 'cvs',
