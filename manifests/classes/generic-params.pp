@@ -27,42 +27,43 @@ class generic::params {
     #                   'figlet', # this requires to have the rpmforge repo available, otherwise resolution fails
     $utils_packages = $operatingsystem ? {
         /(?i-mx:redhat|centos)/ => [
-                                    # Inspection tools
-                                    'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
-                                    # Installation helpers
-                                    'wget', 'lynx',
-                                    'elinks',      # this is the name for this package on RHEL distros
-                                    'curl.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                                    # Code versioning tools
-                                    'rcs', 'cvs',
-                                    'mercurial', # 'hg', # since this is the true name for package hg on RHEL distros
-                                    'subversion.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                                    # 'git', # not needed explicitly since module exists
-                                    # Popular editors
-                                    'joe', 'nano',
-                                    # 'vim-enhanced', # not needed explicitly since module exists
-                                    # Popular shells
-                                    'tcsh', 'ksh', 'zsh',
-                                    # 'bash', 'csh', # not needed explicitly
-                                    # Archivers & compressors
-                                    'bzip2', 'rzip', 'unzip', 'zip', 'lzip', 'arc', 'pax',
-                                    # 'cpio', 'gzip', # not needed explicitly
-                                    # Commonly setup by default install, but put here just in case
-                                    'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
-                                    'screen', 'time', 'strace',
-                                    # 'procps', # not needed explicitly
-                                    ##                    'ntpdate', # Not needed, this arrives via the ntp package on modern RHEL compatible distros
-                                    # Other
-                                    'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
-                                    'bind-utils', # dig & host utils come with this one
-
-                                    'nc',
-                                    ##                   'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
-                                    'redhat-lsb.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                                    'util-linux', # this brings script, very handy for creating typescript files
-                                    'binutils',   # this brings gprof
-                                    'yum-utils'   # this brings repoquery
-                                    ],
+                    # Inspection tools
+                    'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
+                    # Installation helpers
+                    'wget', 'lynx',
+                    'elinks',      # this is the name for this package on RHEL distros
+                    'curl.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
+                    # Code versioning tools
+                    'rcs', 'cvs',
+                    'mercurial', # 'hg', # since this is the true name for package hg on RHEL distros
+                    'subversion.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
+                    # 'git', # not needed explicitly since module exists
+                    # Popular editors
+                    'joe', 'nano',
+                    # 'vim-enhanced', # not needed explicitly since module exists
+                    # Popular shells
+                    'tcsh', 'ksh', 'zsh',
+                    # 'bash', 'csh', # not needed explicitly
+                    # Archivers & compressors
+                    'bzip2', 'rzip', 'unzip', 'zip', 'lzip', 'arc', 'pax',
+                    # 'cpio', 'gzip', # not needed explicitly
+                    # Commonly setup by default install, but put here just in case
+                    'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
+                    'screen', 'time', 'strace',
+                    # 'procps', # not needed explicitly
+                    # 'ntpdate', # Not needed, this arrives via the ntp package on modern RHEL compatible distros
+                    # Other
+                    'unison', # 'rsync', # not needed explicitly since module exists
+                    'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
+                    'bind-utils', # dig & host utils come with this one
+                    'unison',
+                    'nc',
+                    # 'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
+                    'redhat-lsb.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
+                    'util-linux', # this brings script, very handy for creating typescript files
+                    'binutils',   # this brings gprof
+                    'yum-utils'   # this brings repoquery
+                    ],
         default => [
                     'debian-keyring',
                     # Inspection tools
@@ -87,6 +88,7 @@ class generic::params {
                     # 'procps', # not needed explicitly
                     'ntpdate',
                     # Other
+                    'unison', # 'rsync', # not needed explicitly since module exists
                     'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
