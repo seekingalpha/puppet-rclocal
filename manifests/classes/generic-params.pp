@@ -23,8 +23,6 @@ class generic::params {
     #### MODULE INTERNAL VARIABLES  #########
     # (Modify to adapt unsupported OSes)
     #######################################
-    #                   'curl', # this is commented out because of funny dependencies with e2fs and as a consequence, glibc
-    #                   'figlet', # this requires to have the rpmforge repo available, otherwise resolution fails
     $utils_packages = $operatingsystem ? {
         /(?i-mx:redhat|centos)/ => [
                     # Inspection tools
@@ -53,10 +51,10 @@ class generic::params {
                     # 'procps', # not needed explicitly
                     # 'ntpdate', # Not needed, this arrives via the ntp package on modern RHEL compatible distros
                     # Other
+                    'finger',
                     'unison', # 'rsync', # not needed explicitly since module exists
                     'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
                     'bind-utils', # dig & host utils come with this one
-                    'unison',
                     'nc',
                     # 'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
                     'redhat-lsb.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
@@ -88,12 +86,14 @@ class generic::params {
                     # 'procps', # not needed explicitly
                     'ntpdate',
                     # Other
+                    'finger',
                     'unison', # 'rsync', # not needed explicitly since module exists
                     'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
                     'figlet',
                     'console-data',
+                    'xauth',
                     'lsb-release'
                     ]
     }
