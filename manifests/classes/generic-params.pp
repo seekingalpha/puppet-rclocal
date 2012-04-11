@@ -52,7 +52,8 @@ class generic::params {
                     # 'ntpdate', # Not needed, this arrives via the ntp package on modern RHEL compatible distros
                     # Other
                     'finger',
-                    'unison', # 'rsync', # not needed explicitly since module exists
+                    # 'unison', # disabled because of name/version conflict
+                    # 'rsync', # not needed explicitly since module exists
                     'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
                     'bind-utils', # dig & host utils come with this one
                     'nc',
