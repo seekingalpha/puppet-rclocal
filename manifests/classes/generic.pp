@@ -116,6 +116,10 @@ class generic::common {
 #
 # Specialization class for Debian systems
 class generic::debian inherits generic::common {
+
+    # Apt configuration management
+    include apt
+
     # log the boot process by putting BOOTLOGD_ENABLE=Yes in /etc/default/bootlogd
     # TODO : check squeeze version?
     augeas { "${generic::params::bootlogd_defaultconf}/BOOTLOGD_ENABLE":
