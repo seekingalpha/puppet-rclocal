@@ -43,7 +43,7 @@ class generic::params {
                     'tcsh', 'ksh', 'zsh',
                     # 'bash', 'csh', # not needed explicitly
                     # Archivers & compressors
-                    'bzip2', 'rzip', 'unzip', 'zip', 'lzip', 'arc', 'pax',
+                    'bzip2', 'unzip', 'zip', 'lzip', 'arc', 'pax', # 'rzip', 
                     # 'cpio', 'gzip', # not needed explicitly
                     # Commonly setup by default install, but put here just in case
                     'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
@@ -59,7 +59,7 @@ class generic::params {
                     'nc',
                     # 'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
                     'redhat-lsb.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                    'util-linux', # this brings script, very handy for creating typescript files
+                    # 'util-linux', # this brings script, very handy for creating typescript files
                     'binutils',   # this brings gprof
                     'yum-utils'   # this brings repoquery
                     ],
