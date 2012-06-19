@@ -92,7 +92,7 @@ class generic::params {
                     'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
-                    'figlet',
+                    'figlet', 'cowsay',
                     'console-data',
                     'xauth',
                     'lsb-release'
