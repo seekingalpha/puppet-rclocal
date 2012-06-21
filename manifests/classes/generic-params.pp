@@ -89,7 +89,7 @@ class generic::params {
                     # Other
                     'finger',
                     'unison', # 'rsync', # not needed explicitly since module exists
-                    'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
+                    'pwgen', 'jwhois', 'man-db', 'gdb', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
                     'figlet', 'cowsay',
