@@ -47,6 +47,7 @@ class generic::common {
 
     #include common
     include augeas
+    include puppet::agent
     include concat::setup
     #include 'test'
     include rsync
