@@ -1,5 +1,5 @@
 name    'generic'
-version '0.0.3'
+version '0.0.4'
 source  'git-admin.uni.lu:puppet-repo.git'
 author  'Sebastien Varrette (Sebastien.Varrette@uni.lu)'
 license 'GPL v3'
@@ -10,11 +10,12 @@ project_page 'UNKNOWN'
 ## List of the classes defined in this module
 classes     'generic::params, generic, generic::common, generic::debian, generic::redhat'
 ## List of the definitions defined in this module
-definitions 'augeas, concat, rsync, git, bash, kernel, vim, sudo, ssh, apt'
+definitions 'augeas, puppet, concat, rsync, git, bash, kernel, vim, sudo, ssh, apt, mysql'
 
 ## Add dependencies, if any:
 # dependency 'username/name', '>= 1.2.0'
 dependency 'augeas' 
+dependency 'puppet' 
 dependency 'concat' 
 dependency 'rsync' 
 dependency 'git' 
@@ -24,3 +25,4 @@ dependency 'vim'
 dependency 'sudo' 
 dependency 'ssh' 
 dependency 'apt' 
+dependency 'mysql' 
