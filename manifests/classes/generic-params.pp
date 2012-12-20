@@ -43,7 +43,7 @@ class generic::params {
                     'tcsh', 'ksh', 'zsh',
                     # 'bash', 'csh', # not needed explicitly
                     # Archivers & compressors
-                    'bzip2', 'unzip', 'zip', 'lzip', 'arc', 'pax', # 'rzip', 
+                    'bzip2', 'unzip', 'zip', 'lzip', 'arc', 'pax', # 'rzip',
                     # 'cpio', 'gzip', # not needed explicitly
                     # Commonly setup by default install, but put here just in case
                     'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
@@ -106,6 +106,7 @@ class generic::params {
 
     # The /etc/rc.local file
     $rc_localconf = $operatingsystem ? {
+        /(?i-mx:redhat|centos|fedora)/ => '/etc/rc.d/rc.local',
         default => '/etc/rc.local'
     }
     $rc_localconf_mode = $::operatingsystem ? {
