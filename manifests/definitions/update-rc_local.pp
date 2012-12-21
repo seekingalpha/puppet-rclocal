@@ -62,8 +62,8 @@ define update::rc_local(
         fail("update::rc_local 'ensure' parameter must be set to either 'absent', or 'present'")
     }
 
-    #TODO: check systems for which /etc/rc.local do not exists. 
-    
+    #TODO: check systems for which /etc/rc.local do not exists.
+
 
     # if content is passed, use that, else if source is passed use that
     $real_content = $content ? {
@@ -80,7 +80,7 @@ define update::rc_local(
             default => ''
         }
     }
-
+    
     concat::fragment { "${generic::params::rc_localconf} ${entryname}":
         target  => "${generic::params::rc_localconf}",
         ensure  => "${ensure}",
@@ -89,7 +89,3 @@ define update::rc_local(
         source  => $real_source
     }
 }
-
-
-
-
