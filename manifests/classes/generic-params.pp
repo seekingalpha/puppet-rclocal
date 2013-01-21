@@ -64,7 +64,7 @@ class generic::params {
                     'yum-utils'   # this brings repoquery
                     ],
         default => [
-                    'debian-keyring',
+                    'debian-keyring', 'deborphan',
                     # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
                     # Installation helpers
