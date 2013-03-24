@@ -26,7 +26,8 @@ class generic::params {
     $utils_packages = $operatingsystem ? {
         /(?i-mx:redhat|centos)/ => [
                     # Inspection tools
-                    'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
+                    'lsof', 'nmap', 'tcpdump', 'telnet',
+                    'iotop', 'htop', 'sysstat', 'dstat',
                     # Installation helpers
                     'wget', 'lynx',
                     'elinks',      # this is the name for this package on RHEL distros
@@ -66,7 +67,8 @@ class generic::params {
         default => [
                     'debian-keyring', 'deborphan',
                     # Inspection tools
-                    'lsof', 'nmap', 'tcpdump', 'iotop', 'htop', 'sysstat', 'telnet',
+                    'lsof', 'nmap', 'tcpdump', 'telnet',
+                    'iotop', 'htop', 'sysstat', 'dstat',
                     # Installation helpers
                     'wget', 'lynx', 'links', 'curl',
                     # Code versioning tools
