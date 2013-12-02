@@ -55,7 +55,7 @@ class generic::params {
                     'finger',
                     # 'unison', # disabled because of name/version conflict
                     # 'rsync', # not needed explicitly since module exists
-                    'pwgen', 'jwhois', 'man', 'gdb', 'ethtool', 'gawk',
+                    'pwgen', 'man', 'gdb', 'ethtool', 'gawk',
                     'bind-utils', # dig & host utils come with this one
                     'nc',
                     # 'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
@@ -91,7 +91,7 @@ class generic::params {
                     # Other
                     'finger',
                     'unison', # 'rsync', # not needed explicitly since module exists
-                    'pwgen', 'jwhois', 'man-db', 'gdb', 'ethtool', 'gawk',
+                    'pwgen', 'man-db', 'gdb', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
                     'figlet', 'cowsay',
