@@ -38,7 +38,7 @@ class generic::params {
                     # Popular editors
                     'nano',
                     # Archivers & compressors
-                    'bzip2', 'unzip', 'zip'
+                    'bzip2', 'unzip', 'zip',
                     # Commonly setup by default install, but put here just in case
                     'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
                     'screen', 'time', 'strace',
@@ -48,7 +48,8 @@ class generic::params {
                     'bind-utils', # dig & host utils come with this one
                     'nc',
                     'binutils',   # this brings gprof
-                    'yum-utils'   # this brings repoquery
+                    'yum-utils',  # this brings repoquery
+                    'redhat-lsb.x86_64'
                     ],
         default => [
                     'debian-keyring', 'deborphan',
