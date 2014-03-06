@@ -27,40 +27,26 @@ class generic::params {
         /(?i-mx:redhat|centos)/ => [
                     # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'telnet',
-                    'iotop', 'htop', 'sysstat', 'dstat',
+                    'iotop', 'htop', 'dstat',
                     # Installation helpers
                     'wget', 'lynx',
                     'elinks',      # this is the name for this package on RHEL distros
-                    'curl.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
+                    'curl.x86_64',
                     # Code versioning tools
-                    'rcs', 'cvs',
-                    'mercurial', # 'hg', # since this is the true name for package hg on RHEL distros
-                    'subversion.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                    # 'git', # not needed explicitly since module exists
+                    'mercurial',
+                    'subversion.x86_64',
                     # Popular editors
-                    'joe', 'nano',
-                    # 'vim-enhanced', # not needed explicitly since module exists
-                    # Popular shells
-                    'tcsh', 'ksh', 'zsh',
-                    # 'bash', 'csh', # not needed explicitly
+                    'nano',
                     # Archivers & compressors
-                    'bzip2', 'unzip', 'zip', 'lzip', 'arc', 'pax', # 'rzip',
-                    # 'cpio', 'gzip', # not needed explicitly
+                    'bzip2', 'unzip', 'zip'
                     # Commonly setup by default install, but put here just in case
                     'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
                     'screen', 'time', 'strace',
-                    # 'procps', # not needed explicitly
-                    # 'ntpdate', # Not needed, this arrives via the ntp package on modern RHEL compatible distros
                     # Other
                     'finger',
-                    # 'unison', # disabled because of name/version conflict
-                    # 'rsync', # not needed explicitly since module exists
-                    'pwgen', 'man', 'gdb', 'ethtool', 'gawk',
+                    'pwgen', 'man', 'ethtool', 'gawk',
                     'bind-utils', # dig & host utils come with this one
                     'nc',
-                    # 'figlet', # this requires to have the rpmforge repo available, otherwise package resolution fails
-                    'redhat-lsb.x86_64', # the 32bit version has a funny dependency on e2fs and as a consequence, glibc
-                    # 'util-linux', # this brings script, very handy for creating typescript files
                     'binutils',   # this brings gprof
                     'yum-utils'   # this brings repoquery
                     ],
@@ -68,30 +54,23 @@ class generic::params {
                     'debian-keyring', 'deborphan',
                     # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'telnet',
-                    'iotop', 'htop', 'sysstat', 'dstat',
+                    'iotop', 'htop', 'dstat',
                     # Installation helpers
                     'wget', 'lynx', 'links', 'curl',
                     # Code versioning tools
-                    'rcs', 'cvs', 'subversion', 'mercurial',
-                    # 'git', # not needed explicitly since module exists
+                    'subversion', 'mercurial',
                     # Popular editors
-                    'joe', 'nano',
-                    # 'vim', # not needed explicitly since module exists
-                    # Popular shells
-                    'tcsh', 'ksh', 'zsh',
-                    # 'bash', 'csh', # not needed explicitly
+                    'nano',
                     # Archivers & compressors
-                    'bzip2', 'rzip', 'unzip', 'zip', 'lzip', 'arc', 'pax',
-                    # 'cpio', 'gzip', # not needed explicitly
+                    'bzip2', 'unzip', 'zip',
                     # Commonly setup by default install, but put here just in case
                     'at', 'bc', 'ed', 'file', 'm4', 'make', 'patch',
                     'screen', 'time', 'strace',
-                    # 'procps', # not needed explicitly
                     'ntpdate',
                     # Other
                     'finger',
-                    'unison', # 'rsync', # not needed explicitly since module exists
-                    'pwgen', 'man-db', 'gdb', 'ethtool', 'gawk',
+                    'unison',
+                    'pwgen', 'man-db', 'ethtool', 'gawk',
                     'dnsutils',
                     'netcat-traditional',
                     'figlet', 'cowsay',
