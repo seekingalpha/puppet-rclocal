@@ -27,7 +27,7 @@ class generic::params {
         /(?i-mx:redhat|centos)/ => [
                     # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'telnet',
-                    'iotop', 'htop', 'dstat',
+                    'iotop', 'htop', 'sysstat', 'dstat',
                     # Installation helpers
                     'wget', 'lynx',
                     'elinks',      # this is the name for this package on RHEL distros
@@ -55,7 +55,7 @@ class generic::params {
                     'debian-keyring', 'deborphan',
                     # Inspection tools
                     'lsof', 'nmap', 'tcpdump', 'telnet',
-                    'iotop', 'htop', 'dstat',
+                    'iotop', 'htop', 'sysstat', 'dstat',
                     # Installation helpers
                     'wget', 'lynx', 'links', 'curl',
                     # Code versioning tools
