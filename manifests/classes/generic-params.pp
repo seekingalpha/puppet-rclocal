@@ -44,9 +44,8 @@ class generic::params {
                     'screen', 'time', 'strace',
                     # Other
                     'finger',
-                    'pwgen', 'man', 'ethtool', 'gawk',
+                    'pwgen', 'ethtool', 'gawk',
                     'bind-utils', # dig & host utils come with this one
-                    'nc',
                     'binutils',   # this brings gprof
                     'yum-utils',  # this brings repoquery
                     'redhat-lsb.x86_64'
