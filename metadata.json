@@ -1,0 +1,18 @@
+{
+    "name":    "ulhpc-generic",
+    "version": "0.1.0",
+    "author":  "S. Varrette, H. Cartiaux",
+    "mail":    "hpc-sysadmins@uni.lu",
+    "summary": "Generic module to install all default missing packages on a fresh new system",
+    "license": "gpl-3.0",
+    "source":  "https://github.com/ULHPC/puppet-generic",
+    "project_page": "https://github.com/ULHPC/puppet-generic",
+    "issues_url":   "https://github.com/ULHPC/puppet-generic/issues",
+    "dependencies": [
+        { "name": "puppetlabs-stdlib", "version_range": ">= 1.0.0" }
+    ],
+    "operatingsystem_support": [
+        {  "operatingsystem":"Debian", "operatingsystemrelease": [ "6", "7" ] }
+    ],
+    "tags": ["generic", "base"]
+}
