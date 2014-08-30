@@ -1,0 +1,17 @@
+#!/bin/sh -e
+##########################################################################
+#        __   _          __          _                 _ 
+#       / /__| |_ ___   / / __ ___  | | ___   ___ __ _| |
+#      / / _ \ __/ __| / / '__/ __| | |/ _ \ / __/ _` | |
+#     / /  __/ || (__ / /| | | (__ _| | (_) | (_| (_| | |
+#    /_/ \___|\__\___/_/ |_|  \___(_)_|\___/ \___\__,_|_|
+#
+#########################################################################
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+
