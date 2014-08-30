@@ -1,6 +1,6 @@
 {
     "name":    "ulhpc-generic",
-    "version": "0.1.0",
+    "version": "0.2.1",
     "author":  "S. Varrette, H. Cartiaux",
     "mail":    "hpc-sysadmins@uni.lu",
     "summary": "Generic module to install all default missing packages on a fresh new system",
