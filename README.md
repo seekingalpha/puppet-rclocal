@@ -4,19 +4,20 @@
 
 -------------------------------------------
 
-# ulhpc-generic Puppet Module -- Generic module to install all default missing packages on a fresh new system
+# ULHPC-generic 
 
-Generic module to install all default missing packages on a fresh new system
+Generic puppet module to install all default missing packages on a fresh new system
 
 * Author(s): S. Varrette, H. Cartiaux
 * Copyright: `Copyright (c) 2014 S. Varrette, H. Cartiaux`  
-* [gpl-3.0 Licence](LICENSE)
+* [GPL-3.0 Licence](LICENSE)
 * [Puppet Forge](https://forge.puppetlabs.com/)
 * [Online Project Page](https://github.com/ULHPC/puppet-generic)  -- [Sources](https://github.com/ULHPC/puppet-generic) -- [Issues](https://github.com/ULHPC/puppet-generic/issues)
 
 ## Synopsis
 
-Generic module to install all default missing packages on a fresh new system
+This is the generic puppet module that is applied to *ALL* our nodes. 
+In particular, this module is invoked to install all default missing packages on a fresh new system.
 
 The various operations of this repository are piloted from a `Rakefile` which
 assumes that you have [RVM](https://rvm.io/) installed on your system.
@@ -27,14 +28,14 @@ assumes that you have [RVM](https://rvm.io/) installed on your system.
            `-- metadata.json     # Module configuration - cf [here](https://docs.puppetlabs.com/puppet/latest/reference/modules_publishing.html#write-a-metadatajson-file)
            `-- README.md         # This file
            `-- files/            # Contains static files, which managed nodes can download
-           `-- lib/              # custom facts/type/provider definitions
            `-- manifests/
                 `-- init.pp      # Main manifests file
                 `-- classes/     # Hold manifest for ulhpc-generic classes/
                      `-- ulhpc-generic.pp         # defines the ulhpc-generic class
                      `-- ulhpc-generic-params.pp  # ulhpc-generic module variables 
                 `-- definitions/ # Hold manifest for ulhpc-generic definitions
-                     `-- ulhpc-generic-mydef.pp   # defines the ulhpc-generic::mydef definition                    `-- templates/        # Module ERB template files
+                     `-- ulhpc-generic-mydef.pp   # defines the ulhpc-generic::mydef definition               
+           `-- templates/        # Module ERB template files
            `-- tests/            # Contains examples showing how to declare the module’s classes and defined type
            `-- spec/             # Contains spec tests for any plugins in the lib directory
            `-- Rakefile          # Definition of the [rake](https://github.com/jimweirich/rake) tasks
@@ -52,9 +53,7 @@ Alternatively, generate automatically the documentation via
 
        $> rake doc   # Not yet implemented
        
-For other information, please refer to:
-
-* the `metadata.json` file in this directory 
+For other information, please refer to the `metadata.json` file in this directory 
 
 ## Librarian-Puppet / R10K
 
