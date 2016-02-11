@@ -24,5 +24,20 @@ require 'falkorlib/tasks/git'
 require 'falkorlib/tasks/puppet'
 
 ##############################################################################
+<<<<<<< HEAD
 #TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
+=======
+TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
+
+namespace :puppet do
+	namespace :module do
+		###########   puppet:module:parse   ###########
+		desc "Parse a given module"
+		task :parse do |t|
+			info "#{t.comment}"
+			FalkorLib::Puppet::Modules.parse(TOP_SRCDIR)
+		end # task parse 
+	end 
+end 
+>>>>>>> import
 
