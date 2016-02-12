@@ -1,0 +1,10 @@
+.DS_Store
+.vagrant
+/.bundle/*
+<<<<<<< HEAD
+.falkor*
+/pkg/*
+=======
+.ruby-*
+.falkorlib.yaml
+>>>>>>> import
