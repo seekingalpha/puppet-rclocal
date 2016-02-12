@@ -50,38 +50,38 @@ define rclocal::update(
     $order          = '50'
 )
 {
-    include rclocal::params
+  include rclocal::params
 
-    # $name is provided by define invocation
-    $entryname = $name
+  # $name is provided by define invocation
+  $entryname = $name
 
-    if ! ($ensure in [ 'present', 'absent' ]) {
-        fail("rclocal::update 'ensure' parameter must be set to either 'absent', or 'present'")
-    }
+  if ! ($ensure in [ 'present', 'absent' ]) {
+      fail("rclocal::update 'ensure' parameter must be set to either 'absent', or 'present'")
+  }
 
-    $real_content = $content ? { 
-        '' => undef, 
-        default => $source ? { 
-            ''      => $content,
-            default => undef
-        }   
-    }   
+  $real_content = $content ? {
+      '' => undef,
+      default => $source ? {
+          ''      => $content,
+          default => undef
+      }
+  }
 
-    $real_source = $source ? { 
-        '' => undef, 
-        default => $content ? { 
-            ''      => $source,
-            default => undef
-        }   
-    }   
+  $real_source = $source ? {
+      '' => undef,
+      default => $content ? {
+          ''      => $source,
+          default => undef
+      }
+  }
 
-   concat::fragment { "${rclocal::params::rc_localconf} ${entryname}":
+  concat::fragment { "${rclocal::params::rc_localconf} ${entryname}":
         ensure  => $ensure,
         target  => $rclocal::params::rc_localconf,
         order   => $order,
         content => $real_content,
         source  => $real_source
-    }
+  }
 }
 
 
