@@ -94,6 +94,3 @@ See [`docs/rtfd.md`](rtfd.md) for more details.
 ## Licence
 
 This project and the sources proposed within this repository are released under the terms of the [GPL-3.0](LICENCE) licence.
-
-
-[![Licence](https://www.gnu.org/graphics/gplv3-88x31.png)](LICENSE)
