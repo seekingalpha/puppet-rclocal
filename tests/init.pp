@@ -17,4 +17,13 @@
 #
 node default {
     include rclocal
+
+    rclocal::update { 'Print message':
+        ensure  => 'present',
+        content => "
+# Print a message on start
+echo UPDATED rc.conf executing!
+"
+    }
+
 }

@@ -24,9 +24,6 @@ require 'falkorlib/tasks/git'
 require 'falkorlib/tasks/puppet'
 
 ##############################################################################
-<<<<<<< HEAD
-#TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
-=======
 TOP_SRCDIR = File.expand_path(File.join(File.dirname(__FILE__), "."))
 
 namespace :puppet do
@@ -39,5 +36,4 @@ namespace :puppet do
 		end # task parse 
 	end 
 end 
->>>>>>> import
 
