@@ -6,21 +6,18 @@
 # ------------------------------------------------------------------------------
 # = Defines: rclocal::update
 #
-# Update the content of the file /etc/rc.local
+# Update content fragments in /etc/rc.local
 #
 # == Pre-requisites
 #
-# * The class 'rclocal' should have been instanciated
+# * The class 'rclocal' should have been instantiated
 #
 # == Parameters:
-#
-# [*ensure*]
-#   default to 'present', can be 'absent'.
-#   Default: 'present'
 #
 # [*content*]
 #  Specify the contents of the export entry as a string. Newlines, tabs,
 #  and spaces can be specified using the escaped syntax (e.g., \n for a newline)
+#  Takes precedence of source value
 #
 # [*source*]
 #  Copy a file as the content of the export entry.
@@ -35,6 +32,9 @@
 #  Default: 50
 #
 # == Sample Usage:
+#  rclocal::update{ 'disable_transparent_hugepage':
+#    content => "echo never > /sys/kernel/mm/transparent_hugepage/enabled\n"
+#  }
 #
 # == Warnings
 #
@@ -44,43 +44,30 @@
 # [Remember: No empty lines between comments and class definition]
 #
 define rclocal::update(
-    $ensure         = 'present',
     $content        = undef,
     $source         = undef,
     $order          = '50'
-)
-{
-  include rclocal::params
+) {
+  include ::rclocal
 
   # $name is provided by define invocation
   $entryname = $name
 
-  if ! ($ensure in [ 'present', 'absent' ]) {
-      fail("rclocal::update 'ensure' parameter must be set to either 'absent', or 'present'")
-  }
-
-  $real_content = $content ? {
-      '' => undef,
-      default => $source ? {
-          ''      => $content,
-          default => undef
-      }
-  }
-
-  $real_source = $source ? {
-      '' => undef,
-      default => $content ? {
-          ''      => $source,
-          default => undef
-      }
+  if ! empty($content) {
+    $real_content = $content
+    $real_source = undef
+  } elsif ! empty($source) {
+    $real_content = undef
+    $real_source = $source
+  } else {
+    fail('You must suply wither content or source - content takes precedence if both are defined')
   }
 
   concat::fragment { "${rclocal::params::rc_localconf} ${entryname}":
-        ensure  => $ensure,
         target  => $rclocal::params::rc_localconf,
         order   => $order,
         content => $real_content,
-        source  => $real_source
+        source  => $real_source,
   }
 }
 

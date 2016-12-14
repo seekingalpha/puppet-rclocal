@@ -11,7 +11,6 @@ class rclocal::debian inherits rclocal::common {
 
     # /etc/rc.local footer on Debian systems
     concat::fragment { "${rclocal::params::rc_localconf}_footer":
-        ensure => 'present',
         target => $rclocal::params::rc_localconf,
         source => 'puppet:///modules/rclocal/etc/rc.local.debian_footer',
         order  => 99,

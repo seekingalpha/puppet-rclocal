@@ -41,8 +41,7 @@
 #
 class rclocal(
     $ensure = $rclocal::params::ensure
-) inherits rclocal::params
-{
+) inherits rclocal::params {
     info ("Configuring rclocal (with ensure = ${ensure})")
 
     if ! ($ensure in [ 'present', 'absent' ]) {

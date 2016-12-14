@@ -29,7 +29,6 @@ class rclocal::common {
     }
 
     concat::fragment { "${rclocal::params::rc_localconf}_header":
-        ensure => 'present',
         target => $rclocal::params::rc_localconf,
         source => "puppet:///modules/rclocal/etc/${rc_local_header}",
         order  => 01,

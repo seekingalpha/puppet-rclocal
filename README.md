@@ -21,8 +21,10 @@ Configure the rc.local file.
 This module implements the following elements: 
 
 * __Puppet classes__:
+    * rclocal
 
 * __Puppet definitions__: 
+    * rclocal::update
 
 All these components are configured through a set of variables you will find in
 [`manifests/params.pp`](manifests/params.pp). 
@@ -46,12 +48,23 @@ It accepts the following parameters:
 * `$ensure`: default to 'present', can be 'absent'
 
 Use it as follows:
-
-     include ' rclocal'
+```puppet
+    class { '::rclocal': }
+```
 
 See also [`tests/init.pp`](tests/init.pp)
 
+### Resource `rclocal::update`
+```puppet
+ rclocal::update{ 'do_something_in_rc_local':
+   content => "echo noop /etc/some_file\n"
+ }
 
+ rclocal::update{ 'do_something_in_rc_local':
+   source => 'module_name/path/to/file',
+   order  => '51',
+ }
+```
 
 ## Librarian-Puppet / R10K Setup
 
