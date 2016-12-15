@@ -24,17 +24,6 @@
 #
 class rclocal::params {
 
-    ######## DEFAULTS FOR VARIABLES USERS CAN SET ##########################
-    # (Here are set the defaults, provide your custom variables externally)
-    # (The default used is in the line with '')
-    ###########################################
-
-    # ensure the presence (or absence) of rclocal
-    $ensure = $::rclocal_ensure ? {
-        ''      => 'present',
-        default => $::rclocal_ensure
-    }
-
     #### MODULE INTERNAL VARIABLES  #########
     # (Modify to adapt to unsupported OSes)
     #######################################

@@ -50,6 +50,6 @@
     "rclocal::redhat"
   ],
   "definitions": [
-    "rclocal::update"
+    "rclocal::fragment"
   ]
 }

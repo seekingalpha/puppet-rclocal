@@ -24,7 +24,7 @@ This module implements the following elements:
     * rclocal
 
 * __Puppet definitions__: 
-    * rclocal::update
+    * rclocal::fragment
 
 All these components are configured through a set of variables you will find in
 [`manifests/params.pp`](manifests/params.pp). 
@@ -45,22 +45,31 @@ See [`metadata.json`](metadata.json). In particular, this module depends on
 This is the main class defined in this module.
 It accepts the following parameters: 
 
-* `$ensure`: default to 'present', can be 'absent'
+* `$fragments` - hash of line fragments to install in rc.local file
 
 Use it as follows:
 ```puppet
     class { '::rclocal': }
+# OR
+    class { '::rclocal':
+        fragments => {
+            'do_something_in_rc_local' => {
+                'content' => "echo noop /etc/some_file\n",
+                'order'   => '51'
+            }
+        }
+    }
 ```
 
 See also [`tests/init.pp`](tests/init.pp)
 
-### Resource `rclocal::update`
+### Resource `rclocal::fragment`
 ```puppet
- rclocal::update{ 'do_something_in_rc_local':
+ rclocal::fragment{ 'do_something_in_rc_local':
    content => "echo noop /etc/some_file\n"
  }
 
- rclocal::update{ 'do_something_in_rc_local':
+ rclocal::fragment{ 'do_something_in_rc_local':
    source => 'module_name/path/to/file',
    order  => '51',
  }

@@ -1,16 +1,12 @@
-# File::      <tt>update.pp</tt>
+# File::      <tt>fragment.pp</tt>
 # Author::    S. Varrette, H. Cartiaux, V. Plugaru, S. Diehl aka. UL HPC Management Team (hpc-sysadmins@uni.lu)
 # Copyright:: Copyright (c) 2016 S. Varrette, H. Cartiaux, V. Plugaru, S. Diehl aka. UL HPC Management Team
 # License::   Gpl-3.0
 #
 # ------------------------------------------------------------------------------
-# = Defines: rclocal::update
+# = Defines: rclocal::fragment
 #
 # Update content fragments in /etc/rc.local
-#
-# == Pre-requisites
-#
-# * The class 'rclocal' should have been instantiated
 #
 # == Parameters:
 #
@@ -32,8 +28,9 @@
 #  Default: 50
 #
 # == Sample Usage:
-#  rclocal::update{ 'disable_transparent_hugepage':
-#    content => "echo never > /sys/kernel/mm/transparent_hugepage/enabled\n"
+#  rclocal::fragment{ 'disable_transparent_hugepage':
+#    content => "echo never > /sys/kernel/mm/transparent_hugepage/enabled\n",
+#    order   => '60',
 #  }
 #
 # == Warnings
@@ -43,7 +40,7 @@
 #
 # [Remember: No empty lines between comments and class definition]
 #
-define rclocal::update(
+define rclocal::fragment(
     $content        = undef,
     $source         = undef,
     $order          = '50'
@@ -63,7 +60,7 @@ define rclocal::update(
     fail('You must suply wither content or source - content takes precedence if both are defined')
   }
 
-  concat::fragment { "${rclocal::params::rc_localconf} ${entryname}":
+  concat::fragment { "${rclocal::params::rc_localconf}_${entryname}":
         target  => $rclocal::params::rc_localconf,
         order   => $order,
         content => $real_content,

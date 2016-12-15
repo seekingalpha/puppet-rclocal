@@ -40,21 +40,27 @@
 # [Remember: No empty lines between comments and class definition]
 #
 class rclocal(
-    $ensure = $rclocal::params::ensure
+  $fragments = undef,
 ) inherits rclocal::params {
-    info ("Configuring rclocal (with ensure = ${ensure})")
 
-    if ! ($ensure in [ 'present', 'absent' ]) {
-        fail("rclocal 'ensure' parameter must be set to either 'absent' or 'present'")
+  case $::operatingsystem {
+    debian, ubuntu:         { include rclocal::debian }
+    redhat, fedora, centos: { include rclocal::redhat }
+    default: {
+      fail("Module ${module_name} is not supported on $::{operatingsystem}")
     }
+  }
 
-    case $::operatingsystem {
-        debian, ubuntu:         { include rclocal::debian }
-        redhat, fedora, centos: { include rclocal::redhat }
-        default: {
-            fail("Module ${module_name} is not supported on $::{operatingsystem}")
-        }
+  if ! empty($fragments) {
+    validate_hash($fragments)
+    $fragment_defaults = {
+      'order' => '50'
     }
+    create_resources('::rclocal::fragment',
+      hiera_hash($fragments,{}),
+      $fragment_defaults
+    )
+  }
 }
 
 
